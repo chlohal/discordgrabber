@@ -55,7 +55,7 @@ client.on('ready', async function() {
                 fs.appendFileSync(fileName, ([
                     csvify(m.content),
                     m.createdTimestamp,
-                    csvify(m.createdAt.toString()),
+                    csvify(m.createdAt.toISOString()),
                     csvify(m.channel.name),
                     m.channel.position,
                     csvify(m.channel.topic),
@@ -74,7 +74,7 @@ client.on('ready', async function() {
                     (m.attachments.first()  || {}).id,
                     csvify((m.attachments.first()  || {}).proxyURL),
                     (m.attachments.first()  || {}).spoiler,
-                    csvify((m.attachments.first()  || {})),
+                    csvify((m.attachments.first()  || {})).sourceURL,
                     m.type,
                     m.tts,
                     m.editedTimestamp,
